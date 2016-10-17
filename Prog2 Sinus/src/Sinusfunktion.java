@@ -1,10 +1,12 @@
 import javafx.application.Application;
-
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
@@ -18,6 +20,7 @@ import javafx.stage.Stage;
 public class Sinusfunktion extends Application {
 
 	private Group root;
+	private Pane draw;
 	
 	int cursorX = 0;
 	int cursorY = 200;
@@ -26,8 +29,10 @@ public class Sinusfunktion extends Application {
 	double z1 = 8;  // Amplitude
 	double z2 = 0;
 	int i = 0;
+	double freg = 1.99;
 	
 	public void sinus(double f) {
+		f = this.freg;
 		if(i > 900)
 			return;
 		z0 = f * z1 - z2;
@@ -51,7 +56,7 @@ public class Sinusfunktion extends Application {
 		cursorX = endX;
 		cursorY = endY;
 		line.setStroke(Color.RED);
-		root.getChildren().add(line);	
+		draw.getChildren().add(line);	
 	}
 	
 	@Override
@@ -92,26 +97,50 @@ public class Sinusfunktion extends Application {
 		HBox geschachtelt = new HBox(8);
 		geschachtelt.getChildren().addAll(hbAmplitude, hbFrequenz,hbB, vbox);
 		
+		//	Button geklickt
+		bSend.setOnAction(new EventHandler<ActionEvent>() {
+
+			@Override
+			public void handle(ActionEvent e) {
+				z2 = 0;
+				z1 = Double.parseDouble(tfAmplitude.getText());
+				freg = Double.parseDouble(tfFrequenz.getText());
+				
+				draw.getChildren().clear();	
+				i = 0;
+				cursorX = 0;
+				cursorY = 200;
+				
+				sinus(freg);
+			}
+
+			 });
+		
 		
 		
 		root = new Group();
+		draw = new Pane();
 		
 		Scene scene = new Scene(root, 900, 400);
 		primaryStage.setScene(scene);
 		primaryStage.setTitle("Scribble");
 		
-		Rectangle panel = new Rectangle(900, 400, Color.WHITESMOKE);
-		root.getChildren().add(panel);
+		//Rectangle panel = new Rectangle(900, 400, Color.WHITESMOKE);
+		//root.getChildren().add(panel);
+		
 		
 		
 //		root.getChildren().add(hbAmplitude);
 //		root.getChildren().add(hbFrequenz);
 //		root.getChildren().add(hbB);
 //		root.getChildren().add(vbox);
-		root.getChildren().add(geschachtelt);
 		
-		primaryStage.show();		
+		Pane borderpane = new Pane();
+		borderpane.getChildren().add(geschachtelt);
+		borderpane.getChildren().add(draw);
+		root.getChildren().add(borderpane);
+		primaryStage.show();	
 	
-		sinus(1.99);
+		//sinus(1.99);
 	}
 }
