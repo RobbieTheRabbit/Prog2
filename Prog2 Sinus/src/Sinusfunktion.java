@@ -100,6 +100,7 @@ public class Sinusfunktion extends Application {
 		HBox geschachtelt = new HBox(8);
 		geschachtelt.getChildren().addAll(hbAmplitude, hbFrequenz,hbB, vbox);
 		
+		//	EventHandler fuer den Button
 		bSend.setOnAction(new EventHandler<ActionEvent>() {
 
 			@Override
@@ -144,9 +145,9 @@ public class Sinusfunktion extends Application {
 //		root.getChildren().add(vbox);
 		
 		Pane borderpane = new Pane();
-		borderpane.getChildren().add(geschachtelt);
 		borderpane.getChildren().add(draw);
 		root.getChildren().add(borderpane);
+		borderpane.getChildren().add(geschachtelt);
 		primaryStage.show();	
 	
 		//sinus(1.99);
