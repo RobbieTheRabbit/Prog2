@@ -29,16 +29,17 @@ public class Sinusfunktion extends Application {
 	double z1 = 8;  // Amplitude
 	double z2 = 0;
 	int i = 0;
-	double freg = 1.99;
+	double freq = 1.99;
+	double b;
 	
 	public void sinus(double f) {
-		f = this.freg;
+		f = this.freq;
 		if(i > 900)
 			return;
-		z0 = f * z1 - z2;
+		z0 = f * z1 - b*z2;
 		z2 = z1;
 		z1 = z0;
-		System.out.println(i + " " + (int)z0 ); 
+		//System.out.println(i + " " + (int)z0 ); 
 		drawLine(i, (int)z0) ;
 		i++;
 		//f -= 0.01;
@@ -75,43 +76,50 @@ public class Sinusfunktion extends Application {
 		// Textfeld Frequenz
 		Label lFrequenz = new Label("Frequenz:");
 		lFrequenz.setPrefHeight(25);
-		TextField tfFrequenz = new TextField ();
+		TextField tfFrequenz = new TextField ("1.99");
 		tfFrequenz.setPrefHeight(25);
 		HBox hbFrequenz = new HBox();
 		hbAmplitude.getChildren().addAll(lFrequenz, tfFrequenz);
 		hbAmplitude.setSpacing(10);
 		
-		// Textfeld b fuer z2 MUSS NOCH GEMACHT WERDEN
-		Label lB = new Label("     b:");
-		lB.setPrefHeight(25);
-		TextField tfB = new TextField ();
-		tfB.setPrefHeight(25);
+		// Textfeld Faktor fuer z2 MUSS NOCH GEMACHT WERDEN
+		Label lFaktor = new Label("Faktor:");
+		lFaktor.setPrefHeight(25);
+		TextField tfFaktor = new TextField ();
+		tfFaktor.setPrefHeight(25);
 		HBox hbB = new HBox();
-		hbAmplitude.getChildren().addAll(lB, tfB);
+		hbAmplitude.getChildren().addAll(lFaktor, tfFaktor);
 		hbAmplitude.setSpacing(10);
+		
+		//	Der Button
 		Button bSend = new Button("Anwenden");
 		VBox vbox = new VBox(8);
 		vbox.getChildren().add(bSend);
 		
-		
+		//	HBox mit allen Steuerelementen 
 		HBox geschachtelt = new HBox(8);
 		geschachtelt.getChildren().addAll(hbAmplitude, hbFrequenz,hbB, vbox);
 		
-		//	Button geklickt
 		bSend.setOnAction(new EventHandler<ActionEvent>() {
 
 			@Override
 			public void handle(ActionEvent e) {
 				z2 = 0;
 				z1 = Double.parseDouble(tfAmplitude.getText());
-				freg = Double.parseDouble(tfFrequenz.getText());
+				freq = Double.parseDouble(tfFrequenz.getText());
+				b = Double.parseDouble(tfFaktor.getText()); 
 				
 				draw.getChildren().clear();	
 				i = 0;
 				cursorX = 0;
 				cursorY = 200;
 				
-				sinus(freg);
+				System.out.println("Sinus: " + z1);
+				System.out.println("Frequenz: " + freq);
+				System.out.println("Faktor: " + b);
+				System.out.println("--------------");
+				
+				sinus(freq);
 			}
 
 			 });
