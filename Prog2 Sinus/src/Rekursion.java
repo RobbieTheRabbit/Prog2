@@ -6,6 +6,7 @@ public class Rekursion {
 	static int n;
 	
 	public static void main(String[] args) throws IOException{
+		// einlesen eine Zahl von der Konsole
 		InputStreamReader isr = new InputStreamReader(System.in);
 	    BufferedReader br = new BufferedReader(isr);
 	    System.out.print("Gib eine positive Zahl ein: ");
@@ -14,11 +15,13 @@ public class Rekursion {
 	    
 	    System.out.println();
 		System.out.println("Zahl " + "  Summe");
+		// Ausgabe der Summe von 0 bis zur Zahl
 		for (int i=0; i<=n; i++){
 			System.out.println(i + "       " + berechne(i));
 		}
 	}
 	
+	// rekursive Methode
 	public static int berechne(int n){
 			if (n<=1){ 
 				return 0;
