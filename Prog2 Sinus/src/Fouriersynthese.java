@@ -35,8 +35,17 @@ public class Fouriersynthese extends Application {
 			f = ampl * Math.sin(freq * Math.PI * x/600);
 			y = (int)f;
 			drawLine(x, y);
-			x++;
 		}
+	}
+	
+	public static void auswerten(double ampl1, double freq1){
+		double y = 0;
+		for (int x=0; x<=600; x++){
+			double f = 0;
+			f = ampl1 * Math.sin(freq1 * Math.PI * x/600);
+			y = y + f;
+		}
+		System.out.println("y-Wert ist gleich " +  y + " bei der Amplitude " + ampl1 + " und der Frequenz " + freq1);
 	}
 	
 	private void resetCursor() {
@@ -45,7 +54,7 @@ public class Fouriersynthese extends Application {
 	}
 
 	public static void main(String[] args) {
-		launch(args);	
+		launch(args);
 	}
 	
 	void drawLine(int x, int y) {
@@ -62,6 +71,19 @@ public class Fouriersynthese extends Application {
 	
 	public void start(Stage primaryStage) throws Exception {
 		
+		System.out.println("Aufgabe 3.3:");
+		auswerten(50, 4);
+		auswerten(50/3, 12);
+		auswerten(50/5, 20);
+		auswerten(50/7, 28);
+		System.out.println("-----------------------");
+		
+		System.out.println("Aufgabe 3.4:");
+		auswerten(50, 4);
+		auswerten(50/9, -12);
+		auswerten(50/25, 20);
+		auswerten(50/9, -28);
+		System.out.println("-----------------------");
 		
 		//	Der Button "Anwenden"
 		Button bSend = new Button("Anwenden");
