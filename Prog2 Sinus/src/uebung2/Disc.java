@@ -1,7 +1,5 @@
 package uebung2;
 
-import javafx.scene.paint.Color;
-
 //	Class for the Disk and behaviour
 public class Disc {
 

@@ -8,20 +8,17 @@ import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.layout.FlowPane;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
 import java.util.ArrayList;
 
-/**
- *
- */
+
 public class Hanoi extends Application {
 
-	/**
-	 * @param primaryStage
-	 */
+
 	@Override
 	public void start(Stage primaryStage) {
 
@@ -41,22 +38,22 @@ public class Hanoi extends Application {
 		}
 
 		// GUI
-		primaryStage.setTitle("Die Tüme von Hanoi");
+		primaryStage.setTitle("Die Tuerme von Hanoi");
 
 		// FlowPane Layout
 		FlowPane flowPane = new FlowPane();
 		flowPane.setPadding(new Insets(10, 10, 10, 10));
-		flowPane.setVgap(3);
-		flowPane.setHgap(3);
-		flowPane.setMinWidth(750);
-		ArrayList<Canvas> canvases = new ArrayList<>();
+		flowPane.setVgap(2);
+		flowPane.setHgap(2);
+		flowPane.setMinWidth(700);
+		ArrayList<Canvas> canvas = new ArrayList<>();
 		final ArrayList<GraphicsContext> gces = new ArrayList<>();
 
 		for (int x = 0; x < 3; x++) {
-			canvases.add(new Canvas(130, 150));
-			flowPane.getChildren().add(canvases.get(x));
+			canvas.add(new Canvas(130, 150));
+			flowPane.getChildren().add(canvas.get(x));
 		}
-		drowTower(gces, towers, canvases);
+		drawTower(gces, towers, canvas);
 
 		// ComboBox FromBox
 		ComboBox<String> fromBox = new ComboBox<String>();
@@ -88,33 +85,34 @@ public class Hanoi extends Application {
 						|| !toBox.getValue().matches("[0-3]")) {
 					return;
 				}
+
+				Tower fromTower = towers.get(Integer.parseInt(fromBox.getValue()) - 1);
+				Tower toTower = towers.get(Integer.parseInt(toBox.getValue()) - 1);
+				ArrayList<Disc> fromDiscs = fromTower.getDiscs();
+				ArrayList<Disc> toDiscs = toTower.getDiscs();
+
+				//	towers without Discs
 				if (towers.get(Integer.parseInt(fromBox.getValue()) - 1).getDiscs().size() == 0) {
 					return;
 				}
-				if (!towers.get(Integer.parseInt(toBox.getValue()) - 1).getDiscs().isEmpty()) {
-					if (towers.get(Integer.parseInt(fromBox.getValue()) - 1).getDiscs()
-							.get(towers.get(Integer.parseInt(fromBox.getValue()) - 1).getDiscs().size() - 1)
-							.getWight() >= towers.get(Integer.parseInt(toBox.getValue()) - 1).getDiscs()
-									.get(towers.get(Integer.parseInt(toBox.getValue()) - 1).getDiscs().size() - 1)
-									.getWight()) {
+
+				// discsA > discsB
+				if (!toDiscs.isEmpty()) {
+					if (fromDiscs.get(fromDiscs.size() - 1).getWight() >= toDiscs.get(toDiscs.size() - 1).getWight()) {
 						return;
 					}
 				}
 
 				// add disc frombox to tobox
-				towers.get(Integer.parseInt(toBox.getValue()) - 1)
-						.pushDisc(towers.get(Integer.parseInt(fromBox.getValue()) - 1)
-								.getDisc(towers.get(Integer.parseInt(fromBox.getValue()) - 1).getDiscs().size() - 1));
-
+				toTower.pushDisc(fromTower.getDisc(fromTower.getDiscs().size() - 1));
+				
 				// delete disc from frombox
-				towers.get(Integer.parseInt(fromBox.getValue()) - 1).getDiscs()
-						.remove(towers.get(Integer.parseInt(fromBox.getValue()) - 1).getDiscs().size() - 1);
+				fromDiscs.remove(fromDiscs.size() - 1);
 
 				// draw towers
-				drowTower(gces, towers, canvases);
+				drawTower(gces, towers, canvas);
 				if (towers.get(2).getDiscs().size() == 6) {
 					submitBtn.setDisable(true);
-					submitBtn.setText("YOU WON");
 				}
 			}
 		});
@@ -125,28 +123,24 @@ public class Hanoi extends Application {
 
 	}
 
-	/**
-	 * @param args
-	 */
 	public static void main(String[] args) {
 		launch(args);
 	}
 
-	/**
-	 * @param gces
-	 * @param towers
-	 */
-	public void drowTower(ArrayList<GraphicsContext> gces, ArrayList<Tower> towers, ArrayList<Canvas> canvases) {
+	//	output of canvas + towers + discs
+	public void drawTower(ArrayList<GraphicsContext> gces, ArrayList<Tower> towers, ArrayList<Canvas> canvases) {
 
+		Color cTower = new Color(0, 0, 0, 0.9); // Tower color
 		for (int y = 0; y < 3; y++) {
 			gces.add(canvases.get(y).getGraphicsContext2D());
+			gces.get(y).setFill(cTower);
 			gces.get(y).clearRect(0, 0, canvases.get(y).getWidth(), canvases.get(y).getHeight());
 			gces.get(y).fillRect(65, 30, 10, 100);
 
+			Color cDiscs = new Color(1, 0.4, 0, 1); // Discs color
 			int level = 120;
 			for (int x = 0; x < towers.get(y).getDiscs().size(); x++) {
-				gces.get(y).clearRect(towers.get(y).getDisc(x).getLeft(), level, towers.get(y).getDisc(x).getWight(),
-						10);
+				gces.get(y).setFill(cDiscs);
 				gces.get(y).clearRect(towers.get(y).getDisc(x).getLeft(), level, towers.get(y).getDisc(x).getWight(),
 						10);
 				gces.get(y).fillRect(towers.get(y).getDisc(x).getLeft(), level, towers.get(y).getDisc(x).getWight(),
