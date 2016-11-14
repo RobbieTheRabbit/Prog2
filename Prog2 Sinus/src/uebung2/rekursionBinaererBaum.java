@@ -12,25 +12,48 @@ import javafx.stage.Stage;
 public class rekursionBinaererBaum extends Application{
 	private Group root;
 	private Pane draw;
-	
+	private double laenge = 100;
 	int cursorX = 0;
 	int cursorY = 200;
+	double x = 400;
+	double y = 550;
+	double x1, y1;
+	
+	double angleRadRsin = Math.sin(135 * Math.PI / 180);
+	double angleRadRcos = Math.cos(135 * Math.PI / 180);
+	double angleRadLcos = Math.cos(225 * Math.PI / 180);
+	double angleRadLsin = Math.sin(225 * Math.PI / 180);
 	
 	public static void main(String[] args){
 		launch(args);
 	}
 	
-	void drawLine() {
-		double angleGrad = 45;
-		double angleRad = angleGrad * Math.PI / 180;
-		Line line = new Line(300, 350, 300 , 250);
-		Line lineR = new Line(300, 250, 300 + 50 * Math.sin(135 * Math.PI / 180), 250 + 50 * Math.cos(135 * Math.PI / 180));
-		Line lineL = new Line(300, 250, 300 + 50 * Math.sin(225 * Math.PI / 180), 250 + 50 * Math.cos(225 * Math.PI / 180));
+	void drawLine(double x, double y, double x1, double y1, int n) {
+		System.out.println(n);
+		n++;
+		
+		if (n < 5) {
+			Line line = new Line(x, y, x , y-100);
+			laenge = laenge / 2;
+			Line lineRR = new Line(x, y-100, x + laenge * angleRadRsin, y-100 + laenge * angleRadRcos);
+			Line lineRL = new Line(x, y-100, x + laenge * angleRadLcos, y-100 + laenge * angleRadLsin);
 
-		draw.getChildren().add(line);	
-		draw.getChildren().add(lineR);
-		draw.getChildren().add(lineL);
+			Line lineLR = new Line(x, y-100, x + laenge * angleRadRcos, y-100 + laenge * angleRadLsin);
+			Line lineLL = new Line(x, y-100, x + laenge * angleRadLsin, y-100 + laenge * angleRadLcos);
+			
+			lineLR.setStroke(Color.RED);
+			lineLL.setStroke(Color.RED);
+			
+			draw.getChildren().add(line);	
+			draw.getChildren().add(lineRR);
+			draw.getChildren().add(lineRL);
+			draw.getChildren().add(lineLR);
+			draw.getChildren().add(lineLL);
+			
+			drawLine(x + laenge * angleRadRsin, y-100 + laenge * angleRadRcos, x + laenge * angleRadLcos, y-100 + laenge * angleRadLsin, n);
+		}
 	}
+	 
 
 	@Override
 	public void start(Stage primaryStage) throws Exception {
@@ -38,7 +61,7 @@ public class rekursionBinaererBaum extends Application{
 		root = new Group();
 		draw = new Pane();
 		
-		Scene scene = new Scene(root, 600, 400);
+		Scene scene = new Scene(root, 800, 600);
 		primaryStage.setScene(scene);
 		primaryStage.setTitle("Aufgabe 3.1");
 		
@@ -47,6 +70,7 @@ public class rekursionBinaererBaum extends Application{
 		root.getChildren().add(borderpane);
 		primaryStage.show();
 		
-		drawLine();
+		int n = 0;
+		drawLine( x, y, x1, y1, n);
 	}
 }
