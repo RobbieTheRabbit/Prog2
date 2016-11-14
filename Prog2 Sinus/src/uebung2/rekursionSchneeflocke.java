@@ -89,7 +89,7 @@ public class rekursionSchneeflocke extends Application{
 	    Pane draw;
 		root = new Group();
 		draw = new Pane();
-		double laenge = 100; //length of one original segment of the snowflake, actual size *2
+		double laenge = 400; //length of one original segment of the snowflake, actual size *2
 		
 		Scene scene = new Scene(root, 600, 400); //size of the canvas 
 		primaryStage.setScene(scene);
