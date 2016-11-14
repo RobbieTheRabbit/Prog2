@@ -14,29 +14,30 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
 import java.util.ArrayList;
-
+/*
+ * Main Class for the Hanoi Towers
+ * 2. task of Prog2
+ */
 
 public class Hanoi extends Application {
 
-
 	@Override
 	public void start(Stage primaryStage) {
-		
-		//	creation of the Towers
-		ArrayList<Tower> towers = new ArrayList<>();
-		towers.add(new Tower());
-		towers.add(new Tower());
-		towers.add(new Tower());
 
-		//	creation of the Discs
-		int widht = 120;
-		int left = 10;
-		for (int x = 0; x < 5; x++) {
+		// creation of the Towers
+		ArrayList<Tower> towers = new ArrayList<>();
+		towers.add(new Tower()); // Tower 1
+		towers.add(new Tower()); // Tower 2
+		towers.add(new Tower()); // Tower 3
+
+		// creation of the Discs
+		int widht = 120; // start width
+		int left = 10; // set start
+		for (int x = 0; x < 5; x++) { // 5 Discs
 			towers.get(0).pushDisc(new Disc(widht, left));
 			widht -= 20;
 			left += 10;
 		}
-
 
 		primaryStage.setTitle("Die Tuerme von Hanoi");
 
@@ -46,8 +47,8 @@ public class Hanoi extends Application {
 		flowPane.setVgap(2);
 		flowPane.setHgap(2);
 		flowPane.setMinWidth(750);
-		
-		//	Creation of the canvases
+
+		// Creation of the canvases
 		ArrayList<Canvas> canvas = new ArrayList<>();
 		final ArrayList<GraphicsContext> gces = new ArrayList<>();
 
@@ -78,7 +79,7 @@ public class Hanoi extends Application {
 		flowPane.getChildren().add(submitBtn);
 		submitBtn.setOnAction(new EventHandler<ActionEvent>() {
 
-			@Override
+			// Action Handler for the Button
 			public void handle(ActionEvent event) {
 				if (fromBox.getValue().isEmpty() || toBox.getValue().isEmpty()
 						|| fromBox.getValue().equals(toBox.getValue()) || !fromBox.getValue().matches("[0-3]")
@@ -91,13 +92,23 @@ public class Hanoi extends Application {
 				ArrayList<Disc> fromDiscs = fromTower.getDiscs();
 				ArrayList<Disc> toDiscs = toTower.getDiscs();
 
-				//	towers without Discs
+				/**
+				 * if the towers have no Discs
+				 *
+				 * @param
+				 * @return nothing
+				 */
 				if (towers.get(Integer.parseInt(fromBox.getValue()) - 1).getDiscs().size() == 0) {
 					System.out.println("Keine Scheibe vorhanden!");
 					return;
 				}
 
-				// discsA > discsB
+				/**
+				 * if DiscsA > discsB
+				 *
+				 * @param
+				 * @return nothing
+				 */
 				if (!toDiscs.isEmpty()) {
 					if (fromDiscs.get(fromDiscs.size() - 1).getWight() >= toDiscs.get(toDiscs.size() - 1).getWight()) {
 						System.out.println("Die Scheibe ist größer als die vorige!");
@@ -107,7 +118,7 @@ public class Hanoi extends Application {
 
 				// add disc frombox to tobox
 				toTower.pushDisc(fromTower.getDisc(fromTower.getDiscs().size() - 1));
-				
+
 				// delete disc from frombox
 				fromDiscs.remove(fromDiscs.size() - 1);
 
@@ -119,18 +130,29 @@ public class Hanoi extends Application {
 			}
 		});
 
-		//	Scene
+		// Scene
 		Scene scene = new Scene(flowPane);
 		primaryStage.setScene(scene);
 		primaryStage.show();
 
 	}
 
+	/**
+	 * launch of the GUI
+	 * 
+	 * @param args
+	 */
 	public static void main(String[] args) {
 		launch(args);
 	}
 
-	//	output of canvas + towers + discs
+	/**
+	 * output of canvas + towers + discs
+	 * 
+	 * @param gces
+	 * @param towers
+	 * @param canvases
+	 */
 	public void drawTower(ArrayList<GraphicsContext> gces, ArrayList<Tower> towers, ArrayList<Canvas> canvases) {
 
 		Color cTower = new Color(0, 0, 0, 0.9); // Tower color
