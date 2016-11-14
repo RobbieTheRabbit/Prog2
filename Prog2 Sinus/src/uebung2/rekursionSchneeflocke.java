@@ -6,43 +6,63 @@ import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
 import javafx.scene.shape.Line;
 import javafx.stage.Stage;
-import javafx.scene.paint.Color;
+
 
 public class rekursionSchneeflocke extends Application{
 	
 	private Group root;
-	private Pane draw;
-	
-	int cursorX = 0;
-	int cursorY = 200;
 	
 	public static void main(String[] args){
 		launch(args);
 	}
 	
-	void drawLine() {
-		double angleGrad = 45;
-		double angleRad = angleGrad * Math.PI / 180;
+	public void drawLine(double xstart, double ystart, int n, Pane draw, double laenge) {
 		
-		Line line1 = new Line(300, 350, 300 , 250);
-		Line line2 = new Line(350, 300, 250 , 300);
-		Line line3 = new Line(325, 325, 275 , 275);
-		Line line4 = new Line(325, 275, 275 , 325);
+		if (n == 0) {
+			return;
+		}
 		
-
+		laenge = laenge * 0.33;
+		
+		n = n - 1;
+		
+		Line line1 = new Line(xstart - laenge, ystart - laenge, xstart + laenge , ystart +laenge);
+		drawLine(xstart - laenge, ystart - laenge , n, draw, laenge);
+		drawLine(xstart + laenge, ystart +laenge , n, draw, laenge);
+		
+		Line line2 = new Line(xstart, ystart - laenge, xstart , ystart + laenge);
+		drawLine(xstart, ystart - laenge , n, draw, laenge);
+		drawLine(xstart, ystart + laenge , n, draw, laenge);
+		
+		Line line3 = new Line(xstart + laenge, ystart - laenge, xstart - laenge , ystart +laenge);
+		drawLine(xstart + laenge, ystart - laenge , n, draw, laenge);
+		drawLine(xstart - laenge, ystart + laenge , n, draw, laenge);
+		
+		Line line4 = new Line(xstart - laenge, ystart, xstart + laenge , ystart);
+		drawLine(xstart - laenge, ystart , n, draw, laenge);
+		drawLine(xstart + laenge, ystart , n, draw, laenge);
+		
+		
 		draw.getChildren().add(line1);
 		draw.getChildren().add(line2);
 		draw.getChildren().add(line3);
 		draw.getChildren().add(line4);
 		
+		
+		
+		
+		
+		
+			
 	}
 
 
 	@Override
 	public void start(Stage primaryStage) throws Exception {
-		
+	    Pane draw;
 		root = new Group();
 		draw = new Pane();
+		double laenge = 100;
 		
 		Scene scene = new Scene(root, 600, 400);
 		primaryStage.setScene(scene);
@@ -53,6 +73,6 @@ public class rekursionSchneeflocke extends Application{
 		root.getChildren().add(borderpane);
 		primaryStage.show();
 		
-		drawLine();
+		drawLine(300, 200, 3, draw, laenge);
 		
 	}}
