@@ -38,9 +38,9 @@ public class rekursionSchneeflocke extends Application{
 		
 		n = n - 1;
 		
-		Line line1 = new Line(xstart - laenge, ystart - laenge, xstart + laenge , ystart +laenge);
-		drawLine(xstart - laenge, ystart - laenge , n, draw, laenge);
-		drawLine(xstart + laenge, ystart +laenge , n, draw, laenge);
+		Line line1 = new Line(xstart - laenge*0.75, ystart - laenge*0.75, xstart + laenge*0.75 , ystart +laenge*0.75);
+		drawLine(xstart - laenge*0.75, ystart - laenge*0.75 , n, draw, laenge*0.75);
+		drawLine(xstart + laenge*0.75, ystart +laenge*0.75 , n, draw, laenge*0.75);
 		/*
 		 * \
 		 */
@@ -53,9 +53,9 @@ public class rekursionSchneeflocke extends Application{
 		 * |
 		 */
 		
-		Line line3 = new Line(xstart + laenge, ystart - laenge, xstart - laenge , ystart +laenge);
-		drawLine(xstart + laenge, ystart - laenge , n, draw, laenge);
-		drawLine(xstart - laenge, ystart + laenge , n, draw, laenge);
+		Line line3 = new Line(xstart + laenge*0.75, ystart - laenge*0.75, xstart - laenge*0.75 , ystart +laenge*0.75);
+		drawLine(xstart + laenge*0.75, ystart - laenge*0.75 , n, draw, laenge*0.75);
+		drawLine(xstart - laenge*0.75, ystart + laenge*0.75 , n, draw, laenge*0.75);
 		/*
 		 * /
 		 */
