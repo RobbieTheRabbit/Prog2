@@ -21,14 +21,14 @@ public class Hanoi extends Application {
 
 	@Override
 	public void start(Stage primaryStage) {
-
-		// Gamestart INI
-
+		
+		//	creation of the Towers
 		ArrayList<Tower> towers = new ArrayList<>();
 		towers.add(new Tower());
 		towers.add(new Tower());
 		towers.add(new Tower());
 
+		//	creation of the Discs
 		int widht = 120;
 		int left = 10;
 		for (int x = 0; x < 5; x++) {
@@ -37,7 +37,7 @@ public class Hanoi extends Application {
 			left += 10;
 		}
 
-		// GUI
+
 		primaryStage.setTitle("Die Tuerme von Hanoi");
 
 		// FlowPane Layout
@@ -45,7 +45,9 @@ public class Hanoi extends Application {
 		flowPane.setPadding(new Insets(10, 10, 10, 10));
 		flowPane.setVgap(2);
 		flowPane.setHgap(2);
-		flowPane.setMinWidth(700);
+		flowPane.setMinWidth(750);
+		
+		//	Creation of the canvases
 		ArrayList<Canvas> canvas = new ArrayList<>();
 		final ArrayList<GraphicsContext> gces = new ArrayList<>();
 
@@ -59,7 +61,6 @@ public class Hanoi extends Application {
 		ComboBox<String> fromBox = new ComboBox<String>();
 		Label lFrom = new Label("  Von: ");
 		fromBox.getItems().addAll("1", "2", "3");
-		// fromBox.setEditable(true);
 		fromBox.setValue("1");
 		flowPane.getChildren().addAll(lFrom, fromBox);
 
@@ -68,12 +69,11 @@ public class Hanoi extends Application {
 		lTo.setPrefHeight(25);
 		ComboBox<String> toBox = new ComboBox<String>();
 		toBox.getItems().addAll("1", "2", "3");
-		// toBox.setEditable(true);
 		toBox.setValue("2");
 		Label lSpace = new Label("   ");
 		flowPane.getChildren().addAll(lTo, toBox, lSpace);
 
-		// Button Verschieben
+		// Button "Verschieben"
 		Button submitBtn = new Button("Verschieben");
 		flowPane.getChildren().add(submitBtn);
 		submitBtn.setOnAction(new EventHandler<ActionEvent>() {
@@ -93,12 +93,14 @@ public class Hanoi extends Application {
 
 				//	towers without Discs
 				if (towers.get(Integer.parseInt(fromBox.getValue()) - 1).getDiscs().size() == 0) {
+					System.out.println("Keine Scheibe vorhanden!");
 					return;
 				}
 
 				// discsA > discsB
 				if (!toDiscs.isEmpty()) {
 					if (fromDiscs.get(fromDiscs.size() - 1).getWight() >= toDiscs.get(toDiscs.size() - 1).getWight()) {
+						System.out.println("Die Scheibe ist größer als die vorige!");
 						return;
 					}
 				}
@@ -117,6 +119,7 @@ public class Hanoi extends Application {
 			}
 		});
 
+		//	Scene
 		Scene scene = new Scene(flowPane);
 		primaryStage.setScene(scene);
 		primaryStage.show();
