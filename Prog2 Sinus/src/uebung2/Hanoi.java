@@ -14,8 +14,9 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
 import java.util.ArrayList;
-/*
- * Main Class for the Hanoi Towers
+
+/* 
+* Main Class for the Hanoi Towers
  * 2. task of Prog2
  */
 
@@ -95,8 +96,7 @@ public class Hanoi extends Application {
 				/**
 				 * if the towers have no Discs
 				 *
-				 * @param
-				 * @return nothing
+				 * @return
 				 */
 				if (towers.get(Integer.parseInt(fromBox.getValue()) - 1).getDiscs().size() == 0) {
 					System.out.println("Keine Scheibe vorhanden!");
@@ -106,8 +106,7 @@ public class Hanoi extends Application {
 				/**
 				 * if DiscsA > discsB
 				 *
-				 * @param
-				 * @return nothing
+				 * @return
 				 */
 				if (!toDiscs.isEmpty()) {
 					if (fromDiscs.get(fromDiscs.size() - 1).getWight() >= toDiscs.get(toDiscs.size() - 1).getWight()) {
