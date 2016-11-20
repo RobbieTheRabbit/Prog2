@@ -4,96 +4,90 @@ import javafx.application.Application;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
-import javafx.scene.paint.Color;
 import javafx.scene.shape.Line;
 import javafx.stage.Stage;
 
-
-public class rekursionBinaererBaum extends Application{
+public class rekursionBinaererBaum extends Application {
 	private Group root;
 	private Pane draw;
-	private double laenge = 100; // laenge der Linie
-	int cursorX = 0;
-	int cursorY = 200;
-	double x = 400;	// erste x-Koordinate
-	double y = 550;	// erste y-Koordinate
-	double x1, y1;	// Koordinaten zur Hilfe
-	
-	// winkel in Rad berechnen für 45grad
-	double angleRadRsin = Math.sin(135 * Math.PI / 180);
-	double angleRadRcos = Math.cos(135 * Math.PI / 180);
-	double angleRadLcos = Math.cos(225 * Math.PI / 180);
-	double angleRadLsin = Math.sin(225 * Math.PI / 180);
-	
+	private double laenge = 200; // laenge der Linie
+	double x = 400; // erste x-Koordinate
+	double y = 550; // erste y-Koordinate
+	int stopAfter = 10;
+
 	/**
 	 * @param args
 	 */
-	public static void main(String[] args){
+	public static void main(String[] args) {
 		launch(args);
 	}
-	
-	/** 
-	 * @param x - x-Position des unteres Punktes der Linie
-	 * @param y - y-Position des unteres Punktes der Linie
-	 * @param x1 - x-Position des oberestes Punktes der Linie
-	 * @param y1 - y-Position des oberestes Punktes der Linie
-	 * @param n - Abbruchbediengung
-	 */
-	void drawLine(double x, double y, double x1, double y1, int n) {
-		System.out.println(n);
-		
-		if (n == 0) {
-			return;
-		}
-		
-			laenge = laenge / 2;
-			Line line = new Line(x, y, x , y-100); // die mittlere Linie
-			
-			Line lineRR = new Line(x, y-100, x + laenge * angleRadRsin, y-100 + laenge * angleRadRcos); // die rechte Linie, die um 45 grad gedreht ist
-			Line lineRL = new Line(x, y-100, x + laenge * angleRadLcos, y-100 + laenge * angleRadLsin); // die linke Linie, die um 45 grad gedreht ist
 
-//			Line lineLR = new Line(x + laenge * angleRadLsin, y-100 + laenge * angleRadLcos, x + laenge * angleRadLsin, y-200 + laenge * angleRadLcos); // rechte gerade Linie
-//			Line lineLL = new Line(x + laenge * angleRadLsin, y-200 + laenge * angleRadLcos,(x + laenge * angleRadLsin) + laenge * angleRadLsin, (y-200 + laenge * angleRadLcos) + laenge * angleRadLcos); //die linke Linie auf der linken Seite, die um 45 grad gedreht ist
-//			Line lineLLr = new Line(x + laenge * angleRadLsin, y-200 + laenge * angleRadLcos,(x + laenge * angleRadLsin) + laenge * angleRadRsin, (y-200 + laenge * angleRadLcos) + laenge * angleRadRcos); //die rechte Linie auf der linken Seite, die um 45 grad gedreht ist
-//			Line lineLLl = new Line((x + laenge * angleRadLsin) + laenge * angleRadRsin, (y-200 + laenge * angleRadLcos) + laenge * angleRadRcos, (x + laenge * angleRadLsin) + laenge * angleRadRsin,(y-300 + laenge * angleRadLcos) + laenge * angleRadRcos); // linke gerade Linie
-//			Line lineLLrG = new Line((x + laenge * angleRadLsin) + laenge * angleRadLsin, (y-200 + laenge * angleRadLcos) + laenge * angleRadLcos, (x + laenge * angleRadLsin) + laenge * angleRadLsin, (y-300 + laenge * angleRadLcos) + laenge * angleRadLcos);
-//			
-			lineRL.setStroke(Color.BLUE);
-			
-			draw.getChildren().add(line);	
-			draw.getChildren().add(lineRR);
-			draw.getChildren().add(lineRL);
-//			draw.getChildren().add(lineLR);
-//			draw.getChildren().add(lineLL);
-//			draw.getChildren().add(lineLLr);
-//			draw.getChildren().add(lineLLl);
-//			draw.getChildren().add(lineLLrG);
-			
-			drawLine(x + laenge * angleRadRsin, y-100 + laenge * angleRadRcos, x + laenge * angleRadLcos, y-100 + laenge * angleRadLsin, n-1); // rekursive Methode für die rechte Seite
-			drawLine(x- laenge * angleRadRsin, y-100, x + laenge * angleRadLsin, y-100 + laenge * angleRadLcos, n-1); // rekursive Methode für die linke Seite
-	
-	}
-	 
-
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see javafx.application.Application#start(javafx.stage.Stage)
 	 */
 	@Override
 	public void start(Stage primaryStage) throws Exception {
-		
+
 		root = new Group();
 		draw = new Pane();
-		
+
 		Scene scene = new Scene(root, 800, 600);
 		primaryStage.setScene(scene);
 		primaryStage.setTitle("Aufgabe 3.1");
-		
+
 		Pane borderpane = new Pane();
 		borderpane.getChildren().add(draw);
 		root.getChildren().add(borderpane);
 		primaryStage.show();
+
+		double x1 = x;
+		double y1 = y - laenge;
+
+		Line line = new Line(x, y, x1, y1); // die mittlere Linie
+		draw.getChildren().add(line);
+
+		drawRecursion(x, y, x1, y1, stopAfter, laenge);
+	}
+
+	void drawRecursion(double x, double y, double x1, double y1, int n, double length) {
+		System.out.println(n);
+		if (n == 0) {
+			return;
+		}
+		System.out.println(String.format("(x: %f, y: %f, x1: %f, y1: %f, n: %d, len: %f)", x, y, x1, y1, n, length));
+
+		// Den Winker der gezeichneten Linie berechnen
+		double thetha = Math.atan2(x1 - x, y1 - y);
+		System.out.println(String.format("(thetha: %f)", thetha));
+
+		// 45 Grad +/- berechnen
+		double thethaL = thetha + Math.PI / 4.0;
+		double thethaR = thetha - Math.PI / 4.0;
+		System.out.println(String.format("(thethaR: %f)", thethaR));
+		System.out.println(String.format("(thethaL: %f)", thethaL));
+
+		// Berechnen sin/cos
+		double angleRadRsin = Math.sin(thethaR);
+		double angleRadRcos = Math.cos(thethaR);
+		double angleRadLsin = Math.sin(thethaL);
+		double angleRadLcos = Math.cos(thethaL);
+
+		// Berechnen X,Y Endkoordinaten
+		double x2 = x1 + length * angleRadRsin;
+		double y2 = y1 + length * angleRadRcos;
+		double x3 = x1 + length * angleRadLsin;
+		double y3 = y1 + length * angleRadLcos;
+
+		Line lineR = new Line(x1, y1, x2, y2); // die rechte Linie
+		Line lineL = new Line(x1, y1, x3, y3); // die linke Linie
+
+		draw.getChildren().add(lineR);
+		draw.getChildren().add(lineL);
 		
-		int n = 0; // Abbruchbediengung
-		drawLine( 400, 550, x1, y1, 5);
+		// rekursiv aufrufen
+		drawRecursion(x1, y1, x2, y2, n - 1, length / 2);
+		drawRecursion(x1, y1, x3, y3, n - 1, length / 2);
 	}
 }
