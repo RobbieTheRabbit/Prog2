@@ -1,7 +1,5 @@
 package uebung3;
 
-import javafx.event.ActionEvent;
-
 /**
  * Controller class of the FXML File
 
@@ -12,6 +10,7 @@ import javafx.event.ActionEvent;
  * 
  */
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;

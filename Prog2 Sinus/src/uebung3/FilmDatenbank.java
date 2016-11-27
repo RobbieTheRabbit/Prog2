@@ -20,6 +20,10 @@ import javafx.stage.Stage;
 
 public class FilmDatenbank extends Application{
 
+	/**
+	 * integrate the FXML file
+	 * @param args
+	 */
 	public static void main(String[] args) {
 		
 		Application.launch(args);
