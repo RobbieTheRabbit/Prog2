@@ -6,6 +6,7 @@ import javafx.event.ActionEvent;
  * Controller class of the FXML File
 
  * Created by
+ * User: Sven Böhrnsen
  * IDE: Eclipse Neon
  * Date: 22.11.2016
  * 

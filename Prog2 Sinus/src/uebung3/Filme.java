@@ -4,6 +4,7 @@ package uebung3;
  * Templade class for the Movie entries
 
  * Created by
+ * User: Sven Böhrnsen
  * IDE: Eclipse Neon
  * Date: 22.11.2016
  * 
