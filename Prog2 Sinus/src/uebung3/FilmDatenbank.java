@@ -104,7 +104,7 @@ public class FilmDatenbank extends Application{
 		film6.genre = "Komödie";
 
 		// 7. Film - Captain America: The First Avenger
-		Filme film6 = new Filme();
+		Filme film7 = new Filme();
 		film7.titel  = "Captain America: The First Avenger";
 		film7.original = "Captain America: The First Avenger";
 		film7.haupt = "Chris Evans, Hugo Weaving, Sebastian Stan";
@@ -116,7 +116,7 @@ public class FilmDatenbank extends Application{
 		film7.genre = "Action";
 
 		// 8. Film - Knight and Day
-		Filme film6 = new Filme();
+		Filme film8 = new Filme();
 		film8.titel  = "Knight and Day";
 		film8.original = "Knight and Day";
 		film8.haupt = "Tom Cruise, Cameron Diaz, Maggie Grace";
