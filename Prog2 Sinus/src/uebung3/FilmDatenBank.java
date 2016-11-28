@@ -1,34 +1,29 @@
 package uebung3;
 
+import java.util.HashMap;
+
 /**
- * The Main class for the Movie Database
+ * XXX
 
  * Created by
  * Author: Sven Böhrnsen
  * IDE: Eclipse Neon
- * Date: 22.11.2016
+ * Date: 28.11.2016
  * 
  */
+public class FilmDatenBank {
 
-import java.util.HashMap;
-
-import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
-import javafx.scene.layout.Pane;
-import javafx.stage.Stage;
-
-public class FilmDatenbank extends Application{
-
+	
 	/**
-	 * integrate the FXML file
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		
-		Application.launch(args);
-		
-		
+		// TODO Auto-generated method stub
+
+	}
+	
+	
+	public void insertFilms() {
 		HashMap<String, Filme> hmFimeDB = new HashMap<String, Filme>();
 		
 		// 1. Film - Highlander
@@ -126,15 +121,6 @@ public class FilmDatenbank extends Application{
 		film8.laenge= "109";
 		film8.jahr = "2010";
 		film8.genre = "Komödie";
-
-	/* (non-Javadoc)
-	 * @see javafx.application.Application#start(javafx.stage.Stage)
-	 */
-	@Override
-	public void start(Stage primaryStage) throws Exception {
-		Pane mainPane = (Pane) FXMLLoader.load(FilmDatenbank.class.getResource("moviebase.fxml"));
-		primaryStage.setScene(new Scene(mainPane));
-		primaryStage.show();
 		
 	}
 

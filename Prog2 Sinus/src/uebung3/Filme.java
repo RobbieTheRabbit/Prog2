@@ -2,10 +2,9 @@ package uebung3;
 
 /**
  * Templade class for the Movie entries
-
- * Created by
- * Author: Sven Böhrnsen
- * IDE: Eclipse Neon
+ * 
+ * Created by Author: Sven Böhrnsen 
+ * IDE: Eclipse Neon 
  * Date: 22.11.2016
  * 
  */
@@ -20,6 +19,5 @@ public class Filme {
 	String jahr;
 	String laenge;
 	String genre;
-	
 
 }
