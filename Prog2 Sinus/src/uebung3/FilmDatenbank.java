@@ -4,7 +4,7 @@ package uebung3;
  * The Main class for the Movie Database
 
  * Created by
- * User: Sven Böhrnsen
+ * Author: Sven Böhrnsen
  * IDE: Eclipse Neon
  * Date: 22.11.2016
  * 
@@ -91,7 +91,7 @@ public class FilmDatenbank extends Application{
 		film5.jahr = "1976";
 		film5.genre = "Komödie";
 		
-		// 6. Film - Eine Leiche zum Dessert
+		// 6. Film - Blues Brothers
 		Filme film6 = new Filme();
 		film6.titel  = "Blues Brothers";
 		film6.original = "The Blues Brothers";
@@ -101,8 +101,31 @@ public class FilmDatenbank extends Application{
 		film6.musik = "Ira Newborn, Elmer Bernstein";
 		film6.laenge= "132";
 		film6.jahr = "1980";
-		film6.genre = "Kom�die";
-	}
+		film6.genre = "Komödie";
+
+		// 7. Film - Captain America: The First Avenger
+		Filme film6 = new Filme();
+		film7.titel  = "Captain America: The First Avenger";
+		film7.original = "Captain America: The First Avenger";
+		film7.haupt = "Chris Evans, Hugo Weaving, Sebastian Stan";
+		film7.regie = "Joe Johnston";
+		film7.buch = "Christopher Markus, Stephen McFeely";
+		film7.musik = "Alan Silvestri";
+		film7.laenge= "124";
+		film7.jahr = "2011";
+		film7.genre = "Action";
+
+		// 8. Film - Knight and Day
+		Filme film6 = new Filme();
+		film8.titel  = "Knight and Day";
+		film8.original = "Knight and Day";
+		film8.haupt = "Tom Cruise, Cameron Diaz, Maggie Grace";
+		film8.regie = "James Mangold";
+		film8.buch = "Patrick O’Neill";
+		film8.musik = "John Powell";
+		film8.laenge= "109";
+		film8.jahr = "2010";
+		film8.genre = "Komödie";
 
 	/* (non-Javadoc)
 	 * @see javafx.application.Application#start(javafx.stage.Stage)

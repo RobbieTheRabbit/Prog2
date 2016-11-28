@@ -4,7 +4,7 @@ package uebung3;
  * Controller class of the FXML File
 
  * Created by
- * User: Sven Böhrnsen
+ * Author: Sven Böhrnsen
  * IDE: Eclipse Neon
  * Date: 22.11.2016
  * 
