@@ -21,7 +21,7 @@ public class Fouriersynthese extends Application {
 	
 	int cursorX = 0;
 	int cursorY = 200;
-	
+			
 	double ampl = 50;  // Amplitude
 	double freq = 4;    //Frequenz
 	
