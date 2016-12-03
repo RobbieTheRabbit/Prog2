@@ -50,7 +50,15 @@ public class rekursionBinaererBaum extends Application {
 
 		drawRecursion(x, y, x1, y1, stopAfter, laenge);
 	}
-
+	
+	/**
+	 * @param x startingpoint x-coordinate 
+	 * @param y startingpoint y-coordinate
+	 * @param x1 endpoint x-coordinate 
+	 * @param y1 endpoint y-coordinate
+	 * @param n iteration counter 
+	 * @param length -  length of one segment of the snowflake (actual size *2)
+	 */
 	void drawRecursion(double x, double y, double x1, double y1, int n, double length) {
 		System.out.println(n);
 		if (n == 0) {
