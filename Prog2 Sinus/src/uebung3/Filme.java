@@ -1,5 +1,7 @@
 package uebung3;
 
+import java.util.Set;
+
 /**
  * Templade class for the Movie entries
  * 
@@ -11,13 +13,17 @@ package uebung3;
 
 public class Filme {
 	String titel;
-	String original;
+	String usTitel;
 	String haupt;
 	String regie;
 	String buch;
 	String musik;
-	String jahr;
-	String laenge;
+	int jahr;
+	int laenge;
 	String genre;
 
 }
+
+//enum Genre {
+//	Action, Animation, Komödie, Drama, Horror, Fantasie, Thriller, Comicverfilmung, Romantik, Science-Fiction 
+//}
