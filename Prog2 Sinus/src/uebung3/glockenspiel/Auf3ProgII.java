@@ -20,7 +20,7 @@ public class Auf3ProgII extends Application {
              
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("FXMLDocument.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/uebung3/glockenspiel/FXMLDocument.fxml"));
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
