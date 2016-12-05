@@ -11,6 +11,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="610.0" prefWidth="1286.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uebung3.MovieController">
    <children>
@@ -42,8 +43,14 @@
                               <TableColumn fx:id="tc_Genre" prefWidth="102.0" text="Genre" />
                            </columns>
                         </TableView>
-                        <TextField fx:id="tf_Search" layoutX="449.0" layoutY="38.0" prefHeight="41.0" prefWidth="273.0" />
-                        <Button fx:id="b_Search" layoutX="722.0" layoutY="38.0" mnemonicParsing="false" onDragDetected="#searchMovieClick" prefHeight="42.0" prefWidth="88.0" text="Suchen" />
+                        <TextField fx:id="tf_Search" layoutX="449.0" layoutY="38.0" prefHeight="41.0" prefWidth="273.0">
+                           <font>
+                              <Font size="18.0" />
+                           </font></TextField>
+                        <Button fx:id="b_Search" layoutX="722.0" layoutY="38.0" mnemonicParsing="false" onDragDetected="#searchMovieClick" prefHeight="42.0" prefWidth="88.0" text="Suchen">
+                           <font>
+                              <Font size="18.0" />
+                           </font></Button>
                      </children>
                   </AnchorPane>
               </content>
@@ -56,7 +63,10 @@
                         <TextField fx:id="tf_Haupt" layoutX="263.0" layoutY="102.0" />
                         <TextField fx:id="tf_Original" layoutX="454.0" layoutY="35.0" />
                         <TextField fx:id="tf_Jahr" layoutX="454.0" layoutY="102.0" />
-                        <Button fx:id="b_Change" layoutX="555.0" layoutY="149.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="210.0" text="Anwenden" />
+                        <Button fx:id="b_Change" layoutX="513.0" layoutY="154.0" mnemonicParsing="false" onAction="#changeClick" prefHeight="35.0" prefWidth="210.0" text="Anwenden">
+                           <font>
+                              <Font size="18.0" />
+                           </font></Button>
                         <Label layoutX="263.0" layoutY="18.0" text="Titel" />
                         <Label layoutX="454.0" layoutY="18.0" text="Original" />
                         <Label layoutX="263.0" layoutY="85.0" text="Hauptdarsteller/in" />
@@ -82,6 +92,16 @@
                               <TableColumn fx:id="tc_Genre1" prefWidth="102.0" text="Genre" />
                            </columns>
                         </TableView>
+                        <Button fx:id="b_Delete" layoutX="753.0" layoutY="154.0" mnemonicParsing="false" onAction="#deleteClick" prefHeight="35.0" prefWidth="210.0" text="Löschen" textFill="RED">
+                           <font>
+                              <Font name="System Bold Italic" size="18.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="b_insert" layoutX="274.0" layoutY="155.0" mnemonicParsing="false" onAction="#insertClick" prefHeight="35.0" prefWidth="210.0" text="Einfügen">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Button>
                      </children>
                   </AnchorPane>
             </content>

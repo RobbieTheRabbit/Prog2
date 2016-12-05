@@ -1,7 +1,6 @@
 package uebung3;
 
-import java.net.URL;
-import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
 
 /**
  * Controller class of the FXML File
@@ -13,9 +12,7 @@ import java.util.ResourceBundle;
  * 
  */
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.ListView;
@@ -23,7 +20,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 
-public class MovieController implements Initializable {
+public class MovieController {
 
 	@FXML // fx:id="lv_Movies"
 	private ListView<?> lv_Movies; // Value injected by FXMLLoader
@@ -121,25 +118,29 @@ public class MovieController implements Initializable {
 	@FXML // fx:id="tc_Genre1"
 	private TableColumn<?, ?> tc_Genre1; // Value injected by FXMLLoader
 
+	@FXML // fx:id="b_Delete"
+	private Button b_Delete; // Value injected by FXMLLoader
+
+	@FXML // fx:id="b_insert"
+	private Button b_insert; // Value injected by FXMLLoader
+
 	@FXML
-	void ChangeClick(ActionEvent event) {
+	void changeMovieClick(ActionEvent event) {
+
+	}
+
+	@FXML
+	void deleteMovieClick(ActionEvent event) {
+
+	}
+
+	@FXML
+	void insertMovieClick(ActionEvent event) {
 
 	}
 
 	@FXML
 	void searchMovieClick(ActionEvent event) {
-
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see javafx.fxml.Initializable#initialize(java.net.URL,
-	 * java.util.ResourceBundle)
-	 */
-	@Override
-	public void initialize(URL location, ResourceBundle resources) {
-		// TODO Auto-generated method stub
 
 	}
 

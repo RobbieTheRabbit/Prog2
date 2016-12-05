@@ -33,7 +33,7 @@ public class Main extends Application {
 		Parent mainPane = FXMLLoader.load(getClass().getResource("/uebung3/moviebase.fxml"));
 		primaryStage.setScene(new Scene(mainPane));
 		primaryStage.show();
-//		FilmDatenBank d = new FilmDatenBank();
+		// FilmDatenBank d = new FilmDatenBank();
 		// d.addFilm(new Film());
 	}
 
