@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="610.0" prefWidth="1286.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uebung3.MovieController">
+   <children>
+      <TabPane layoutX="14.0" layoutY="11.0" prefHeight="589.0" prefWidth="1257.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab text="Filmauflistung">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="487.0" prefWidth="1087.0">
+                     <children>
+                        <TableView fx:id="tv_Movies" editable="true" prefHeight="555.0" prefWidth="1257.0">
+                           <columns>
+                              <TableColumn fx:id="tc_Titel" prefWidth="172.0" text="Titel" />
+                              <TableColumn fx:id="tc_Original" prefWidth="144.0" text="Original" />
+                              <TableColumn fx:id="tc_Haupt" prefWidth="214.0" text="Hauptdarsteller/in" />
+                              <TableColumn fx:id="tc_Regie" prefWidth="144.0" text="Regie" />
+                              <TableColumn fx:id="tc_Buch" prefWidth="151.0" text="Drehbuch" />
+                              <TableColumn fx:id="tc_Musik" prefWidth="136.0" text="Musik" />
+                              <TableColumn fx:id="tc_Jahr" prefWidth="82.0" text="Jahr" />
+                              <TableColumn fx:id="tc_Laenge" prefWidth="95.0" text="Länge (Min)" />
+                              <TableColumn fx:id="tc_Genre" prefWidth="118.0" text="Genre" />
+                           </columns>
+                        </TableView>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab text="Einfügen/Löschen">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TextField fx:id="tf_Titel" layoutX="857.0" layoutY="40.0">
+                           <font>
+                              <Font size="14.0" />
+                           </font></TextField>
+                        <TextField fx:id="tf_Haupt" layoutX="1052.0" layoutY="40.0">
+                           <font>
+                              <Font size="14.0" />
+                           </font></TextField>
+                        <TextField fx:id="tf_Original" layoutX="857.0" layoutY="97.0">
+                           <font>
+                              <Font size="14.0" />
+                           </font></TextField>
+                        <TextField fx:id="tf_Jahr" layoutX="1052.0" layoutY="97.0">
+                           <font>
+                              <Font size="14.0" />
+                           </font></TextField>
+                        <Label layoutX="857.0" layoutY="23.0" text="Titel" />
+                        <Label layoutX="857.0" layoutY="80.0" text="Original" />
+                        <Label layoutX="1052.0" layoutY="23.0" text="Hauptdarsteller/in" />
+                        <Label layoutX="1052.0" layoutY="80.0" text="Jahr" />
+                        <TextField fx:id="tf_Regie" layoutX="857.0" layoutY="152.0">
+                           <font>
+                              <Font size="14.0" />
+                           </font></TextField>
+                        <Label layoutX="857.0" layoutY="135.0" text="Regie" />
+                        <Label layoutX="1051.0" layoutY="186.0" text="Genre" />
+                        <ComboBox fx:id="cb_Genre" layoutX="1052.0" layoutY="203.0" prefHeight="27.0" prefWidth="179.0" />
+                        <TextField fx:id="tf_Laenge" layoutX="1052.0" layoutY="152.0">
+                           <font>
+                              <Font size="14.0" />
+                           </font></TextField>
+                        <Label layoutX="1052.0" layoutY="135.0" text="Länge" />
+                        <TextField fx:id="tv_Buch" layoutX="857.0" layoutY="206.0">
+                           <font>
+                              <Font size="14.0" />
+                           </font></TextField>
+                        <Label layoutX="857.0" layoutY="189.0" text="Drehbuch" />
+                        <Button fx:id="b_Delete" layoutX="858.0" layoutY="389.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="372.0" text="Löschen" textFill="RED">
+                           <font>
+                              <Font name="System Bold Italic" size="18.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="b_insert" layoutX="857.0" layoutY="248.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="374.0" text="Einfügen">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Button>
+                        <ListView fx:id="lv_Movies" layoutX="14.0" layoutY="18.0" prefHeight="470.0" prefWidth="830.0" />
+                        <TextField fx:id="tf_Search1" layoutX="14.0" layoutY="500.0" prefHeight="41.0" prefWidth="273.0">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </TextField>
+                        <Button fx:id="b_Search1" layoutX="286.0" layoutY="500.0" mnemonicParsing="false" onAction="#searchMovieClick" onDragDetected="#searchMovieClick" prefHeight="42.0" prefWidth="88.0" text="Suchen">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+        </tabs>
+      </TabPane>
+   </children>
+</Pane>

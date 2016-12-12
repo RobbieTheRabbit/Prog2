@@ -47,7 +47,7 @@
                            <font>
                               <Font size="18.0" />
                            </font></TextField>
-                        <Button fx:id="b_Search" layoutX="722.0" layoutY="38.0" mnemonicParsing="false" onDragDetected="#searchMovieClick" prefHeight="42.0" prefWidth="88.0" text="Suchen">
+                        <Button fx:id="b_Search" layoutX="722.0" layoutY="38.0" mnemonicParsing="false" onAction="#searchMovieClick" onDragDetected="#searchMovieClick" prefHeight="42.0" prefWidth="88.0" text="Suchen">
                            <font>
                               <Font size="18.0" />
                            </font></Button>
@@ -63,7 +63,7 @@
                         <TextField fx:id="tf_Haupt" layoutX="263.0" layoutY="102.0" />
                         <TextField fx:id="tf_Original" layoutX="454.0" layoutY="35.0" />
                         <TextField fx:id="tf_Jahr" layoutX="454.0" layoutY="102.0" />
-                        <Button fx:id="b_Change" layoutX="513.0" layoutY="154.0" mnemonicParsing="false" onAction="#changeClick" prefHeight="35.0" prefWidth="210.0" text="Anwenden">
+                        <Button fx:id="b_Change" layoutX="513.0" layoutY="154.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="210.0" text="Anwenden">
                            <font>
                               <Font size="18.0" />
                            </font></Button>
@@ -92,12 +92,12 @@
                               <TableColumn fx:id="tc_Genre1" prefWidth="102.0" text="Genre" />
                            </columns>
                         </TableView>
-                        <Button fx:id="b_Delete" layoutX="753.0" layoutY="154.0" mnemonicParsing="false" onAction="#deleteClick" prefHeight="35.0" prefWidth="210.0" text="Löschen" textFill="RED">
+                        <Button fx:id="b_Delete" layoutX="753.0" layoutY="154.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="210.0" text="Löschen" textFill="RED">
                            <font>
                               <Font name="System Bold Italic" size="18.0" />
                            </font>
                         </Button>
-                        <Button fx:id="b_insert" layoutX="274.0" layoutY="155.0" mnemonicParsing="false" onAction="#insertClick" prefHeight="35.0" prefWidth="210.0" text="Einfügen">
+                        <Button fx:id="b_insert" layoutX="274.0" layoutY="155.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="210.0" text="Einfügen">
                            <font>
                               <Font size="18.0" />
                            </font>
