@@ -29,13 +29,13 @@
                            <columns>
                               <TableColumn fx:id="tc_Titel" prefWidth="172.0" text="Titel" />
                               <TableColumn fx:id="tc_Original" prefWidth="167.99996948242188" text="Original" />
-                              <TableColumn fx:id="tc_Haupt" prefWidth="190.0" text="Hauptdarsteller/in" />
-                              <TableColumn fx:id="tc_Regie" prefWidth="144.0" text="Regie" />
-                              <TableColumn fx:id="tc_Buch" prefWidth="176.0" text="Drehbuch" />
-                              <TableColumn fx:id="tc_Musik" prefWidth="139.0" text="Musik" />
-                              <TableColumn fx:id="tc_Jahr" prefWidth="72.0" text="Jahr" />
-                              <TableColumn fx:id="tc_Laenge" prefWidth="98.0" text="Länge (Min)" />
-                              <TableColumn fx:id="tc_Genre" prefWidth="126.0" text="Genre" />
+                              <TableColumn fx:id="tc_Haupt" prefWidth="203.0" text="Hauptdarsteller/in" />
+                              <TableColumn fx:id="tc_Regie" prefWidth="156.0" text="Regie" />
+                              <TableColumn fx:id="tc_Buch" prefWidth="175.0" text="Drehbuch" />
+                              <TableColumn fx:id="tc_Musik" prefWidth="153.0" text="Musik" />
+                              <TableColumn fx:id="tc_Jahr" prefWidth="67.0" text="Jahr" />
+                              <TableColumn fx:id="tc_Laenge" prefWidth="85.0" text="Länge (Min)" />
+                              <TableColumn fx:id="tc_Genre" prefWidth="106.0" text="Genre" />
                            </columns>
                         </TableView>
                      </children>

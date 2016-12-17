@@ -15,21 +15,20 @@ import javafx.beans.property.SimpleStringProperty;
  */
 
 public class Filme {
-	private SimpleStringProperty titel;
-	private SimpleStringProperty  usTitel;
-	private SimpleStringProperty  haupt;
-	private SimpleStringProperty  regie;
-	private SimpleStringProperty  buch;
-	private SimpleStringProperty  musik;
-	private SimpleIntegerProperty jahr;
-	private SimpleIntegerProperty laenge;
-	private SimpleStringProperty  genre;
+	private SimpleStringProperty titel = new SimpleStringProperty();
+	private SimpleStringProperty  usTitel = new SimpleStringProperty();
+	private SimpleStringProperty  haupt= new SimpleStringProperty();
+	private SimpleStringProperty  regie= new SimpleStringProperty();
+	private SimpleStringProperty  buch= new SimpleStringProperty();
+	private SimpleStringProperty  musik= new SimpleStringProperty();
+	private SimpleIntegerProperty jahr= new SimpleIntegerProperty();
+	private SimpleIntegerProperty laenge= new SimpleIntegerProperty();
+	private SimpleStringProperty  genre= new SimpleStringProperty();
 	
 	
 	/* (non-Javadoc)
 	 * @see java.lang.Object#toString()
 	 */
-	@Override
 	public String toString() {
 		return "Filme [titel=" + titel + ", usTitel=" + usTitel + ", haupt=" + haupt + ", regie=" + regie + ", buch="
 				+ buch + ", musik=" + musik + ", jahr=" + jahr + ", laenge=" + laenge + ", genre=" + genre + "]";
@@ -49,6 +48,7 @@ public class Filme {
 	 */
 	public void setTitel(String string) {
 		this.titel.set(string);
+
 	}
 
 	/**

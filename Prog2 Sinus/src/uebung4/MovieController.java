@@ -20,37 +20,40 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 
+
 public class MovieController {
+	
+	FilmDatenBank db =  new FilmDatenBank();
 
     @FXML // fx:id="tv_Movies"
-    private TableView<?> tv_Movies; // Value injected by FXMLLoader
+    private TableView<Filme> tv_Movies; // Value injected by FXMLLoader
 
     @FXML // fx:id="tc_Titel"
-    private TableColumn<?, ?> tc_Titel; // Value injected by FXMLLoader
+    private TableColumn<Filme, String> tc_Titel; // Value injected by FXMLLoader
 
     @FXML // fx:id="tc_Original"
-    private TableColumn<?, ?> tc_Original; // Value injected by FXMLLoader
+    private TableColumn<Filme, String> tc_Original; // Value injected by FXMLLoader
 
     @FXML // fx:id="tc_Haupt"
-    private TableColumn<?, ?> tc_Haupt; // Value injected by FXMLLoader
+    private TableColumn<Filme, String> tc_Haupt; // Value injected by FXMLLoader
 
     @FXML // fx:id="tc_Regie"
-    private TableColumn<?, ?> tc_Regie; // Value injected by FXMLLoader
+    private TableColumn<Filme, String> tc_Regie; // Value injected by FXMLLoader
 
     @FXML // fx:id="tc_Buch"
-    private TableColumn<?, ?> tc_Buch; // Value injected by FXMLLoader
+    private TableColumn<Filme, String> tc_Buch; // Value injected by FXMLLoader
 
     @FXML // fx:id="tc_Musik"
-    private TableColumn<?, ?> tc_Musik; // Value injected by FXMLLoader
+    private TableColumn<Filme, String> tc_Musik; // Value injected by FXMLLoader
 
     @FXML // fx:id="tc_Jahr"
-    private TableColumn<?, ?> tc_Jahr; // Value injected by FXMLLoader
+    private TableColumn<Filme, Integer> tc_Jahr; // Value injected by FXMLLoader
 
     @FXML // fx:id="tc_Laenge"
-    private TableColumn<?, ?> tc_Laenge; // Value injected by FXMLLoader
+    private TableColumn<Filme, Integer> tc_Laenge; // Value injected by FXMLLoader
 
     @FXML // fx:id="tc_Genre"
-    private TableColumn<?, ?> tc_Genre; // Value injected by FXMLLoader
+    private TableColumn<Filme, String> tc_Genre; // Value injected by FXMLLoader
 
     @FXML // fx:id="tf_Titel"
     private TextField tf_Titel; // Value injected by FXMLLoader
@@ -94,6 +97,22 @@ public class MovieController {
     @FXML
     void searchMovieClick(ActionEvent event) {
 
+    }
+    
+    @FXML 
+    private void initialize() {
+    	
+    	tc_Titel.setCellValueFactory(cellData -> cellData.getValue().getTitel());
+    	tc_Regie.setCellValueFactory(cellData -> cellData.getValue().getRegie());
+    	tc_Musik.setCellValueFactory(cellData -> cellData.getValue().getMusik());
+    	tc_Laenge.setCellValueFactory(cellData -> cellData.getValue().getLaenge().asObject());
+    	tc_Jahr.setCellValueFactory(cellData -> cellData.getValue().getJahr().asObject());
+    	tc_Haupt.setCellValueFactory(cellData -> cellData.getValue().getHaupt());
+    	tc_Genre.setCellValueFactory(cellData -> cellData.getValue().getGenre());
+    	tc_Buch.setCellValueFactory(cellData -> cellData.getValue().getBuch());
+    	tc_Original.setCellValueFactory(cellData -> cellData.getValue().getUsTitel());
+    	
+    	tv_Movies.setItems(db.hmFimeDB);
     }
 
 }
