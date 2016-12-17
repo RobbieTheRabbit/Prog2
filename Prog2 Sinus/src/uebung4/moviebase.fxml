@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="610.0" prefWidth="1286.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uebung3.MovieController">
+   <children>
+      <TabPane layoutX="14.0" layoutY="11.0" prefHeight="589.0" prefWidth="1257.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab text="Filmliste">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="487.0" prefWidth="1087.0">
+                     <children>
+                        <ListView fx:id="lv_Movies" layoutX="18.0" layoutY="14.0" prefHeight="521.0" prefWidth="1227.0" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+            <Tab text="Suchen">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="218.0" prefWidth="716.0">
+                     <children>
+                        <TableView fx:id="tv_Movies" layoutX="9.0" layoutY="107.0" prefHeight="445.0" prefWidth="1241.0">
+                           <columns>
+                              <TableColumn fx:id="tc_Titel" prefWidth="172.0" text="Titel" />
+                              <TableColumn fx:id="tc_Original" prefWidth="144.0" text="Original" />
+                              <TableColumn fx:id="tc_Haupt" prefWidth="214.0" text="Hauptdarsteller/in" />
+                              <TableColumn fx:id="tc_Regie" prefWidth="144.0" text="Regie" />
+                              <TableColumn fx:id="tc_Buch" prefWidth="151.0" text="Drehbuch" />
+                              <TableColumn fx:id="tc_Musik" prefWidth="136.0" text="Musik" />
+                              <TableColumn fx:id="tc_Jahr" prefWidth="82.0" text="Jahr" />
+                              <TableColumn fx:id="tc_Laenge" prefWidth="95.0" text="Länge (Min)" />
+                              <TableColumn fx:id="tc_Genre" prefWidth="102.0" text="Genre" />
+                           </columns>
+                        </TableView>
+                        <TextField fx:id="tf_Search" layoutX="449.0" layoutY="38.0" prefHeight="41.0" prefWidth="273.0">
+                           <font>
+                              <Font size="18.0" />
+                           </font></TextField>
+                        <Button fx:id="b_Search" layoutX="722.0" layoutY="38.0" mnemonicParsing="false" onAction="#searchMovieClick" onDragDetected="#searchMovieClick" prefHeight="42.0" prefWidth="88.0" text="Suchen">
+                           <font>
+                              <Font size="18.0" />
+                           </font></Button>
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+          <Tab text="Bearbeiten">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TextField fx:id="tf_Titel" layoutX="263.0" layoutY="35.0" />
+                        <TextField fx:id="tf_Haupt" layoutX="263.0" layoutY="102.0" />
+                        <TextField fx:id="tf_Original" layoutX="454.0" layoutY="35.0" />
+                        <TextField fx:id="tf_Jahr" layoutX="454.0" layoutY="102.0" />
+                        <Button fx:id="b_Change" layoutX="513.0" layoutY="154.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="210.0" text="Anwenden">
+                           <font>
+                              <Font size="18.0" />
+                           </font></Button>
+                        <Label layoutX="263.0" layoutY="18.0" text="Titel" />
+                        <Label layoutX="454.0" layoutY="18.0" text="Original" />
+                        <Label layoutX="263.0" layoutY="85.0" text="Hauptdarsteller/in" />
+                        <Label layoutX="454.0" layoutY="85.0" text="Jahr" />
+                        <TextField fx:id="tf_Regie" layoutX="644.0" layoutY="35.0" />
+                        <Label layoutX="644.0" layoutY="18.0" text="Regie" />
+                        <Label layoutX="826.0" layoutY="81.0" text="Genre" />
+                        <ComboBox fx:id="cb_Genre" layoutX="827.0" layoutY="98.0" prefHeight="27.0" prefWidth="168.0" />
+                        <TextField fx:id="tf_Laenge" layoutX="644.0" layoutY="103.0" />
+                        <Label layoutX="644.0" layoutY="86.0" text="Länge" />
+                        <TextField fx:id="tv_Buch" layoutX="826.0" layoutY="31.0" />
+                        <Label layoutX="826.0" layoutY="14.0" text="Drehbuch" />
+                        <TableView fx:id="tv_Movies1" layoutX="8.0" layoutY="214.0" prefHeight="343.0" prefWidth="1241.0">
+                           <columns>
+                              <TableColumn fx:id="tc_Titel1" prefWidth="172.0" text="Titel" />
+                              <TableColumn fx:id="tc_Original1" prefWidth="144.0" text="Original" />
+                              <TableColumn fx:id="tc_Haupt1" prefWidth="214.0" text="Hauptdarsteller/in" />
+                              <TableColumn fx:id="tc_Regie1" prefWidth="144.0" text="Regie" />
+                              <TableColumn fx:id="tc_Buch1" prefWidth="151.0" text="Drehbuch" />
+                              <TableColumn fx:id="tc_Musik1" prefWidth="136.0" text="Musik" />
+                              <TableColumn fx:id="tc_Jahr1" prefWidth="82.0" text="Jahr" />
+                              <TableColumn fx:id="tc_Laenge1" prefWidth="95.0" text="Länge (Min)" />
+                              <TableColumn fx:id="tc_Genre1" prefWidth="102.0" text="Genre" />
+                           </columns>
+                        </TableView>
+                        <Button fx:id="b_Delete" layoutX="753.0" layoutY="154.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="210.0" text="Löschen" textFill="RED">
+                           <font>
+                              <Font name="System Bold Italic" size="18.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="b_insert" layoutX="274.0" layoutY="155.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="210.0" text="Einfügen">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+        </tabs>
+      </TabPane>
+   </children>
+</Pane>

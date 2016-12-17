@@ -1,4 +1,4 @@
-package uebung3;
+package uebung4;
 
 import java.util.HashMap;
 
@@ -18,7 +18,6 @@ public class FilmDatenBank {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 
 	}
 	
