@@ -7,35 +7,43 @@ import javafx.collections.ObservableList;
 
 /**
  * Collection of Movies via HashMap
-
- * Created by
- * Author: Sven Böhrnsen
- * IDE: Eclipse Neon
+ * 
+ * Created by Author: 
+ * Sven Böhrnsen IDE: 
+ * Eclipse Neon 
  * Date: 28.11.2016
  * 
  */
 public class FilmDatenBank {
-	//HashMap<Integer, Filme> hmFimeDB = new HashMap<Integer, Filme>();
-	
-	ObservableList<Filme> hmFimeDB = FXCollections.observableArrayList(); 
+	// HashMap<Integer, Filme> hmFimeDB = new HashMap<Integer, Filme>();
+
 	/**
+	 * create a ObservableList for the entries
+	 */
+	ObservableList<Filme> hmFimeDB = FXCollections.observableArrayList();
+
+	/**
+	 * main thread
+	 * 
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		
+
 	}
-	
+
+	/**
+	 * 
+	 */
 	public FilmDatenBank() {
-		
+
 		insertFilms();
 	}
-	
+
 	/**
 	 * HashMap with the Movie content
 	 */
 	public void insertFilms() {
-		
-		
+
 		// 1. Film - Highlander
 		Filme film1 = new Filme();
 		film1.setTitel("Highlander – Es kann nur einen geben");
@@ -47,7 +55,7 @@ public class FilmDatenBank {
 		film1.setLaenge(111);
 		film1.setJahr(1986);
 		film1.setGenre("Fantasie");
-		//hmFimeDB.put(0, film1);
+		// hmFimeDB.put(0, film1);
 		hmFimeDB.add(film1);
 
 		// 2. Film - Back to the Future
@@ -61,9 +69,9 @@ public class FilmDatenBank {
 		film2.setLaenge(116);
 		film2.setJahr(1985);
 		film2.setGenre("Science-Fiction");
-		//hmFimeDB.put(1, film2);
+		// hmFimeDB.put(1, film2);
 		hmFimeDB.add(film2);
-		
+
 		// 3. Film - Tron
 		Filme film3 = new Filme();
 		film3.setTitel("Tron");
@@ -75,9 +83,9 @@ public class FilmDatenBank {
 		film3.setLaenge(96);
 		film3.setJahr(1982);
 		film3.setGenre("Science-Fiction");
-		//hmFimeDB.put(2, film3);
+		// hmFimeDB.put(2, film3);
 		hmFimeDB.add(film3);
-		
+
 		// 4. Film - Manche mögen's heiß
 		Filme film4 = new Filme();
 		film4.setTitel("Manche mögen's heiß");
@@ -89,9 +97,9 @@ public class FilmDatenBank {
 		film4.setLaenge(120);
 		film4.setJahr(1959);
 		film4.setGenre("Komödie");
-		//hmFimeDB.put(3, film4);
+		// hmFimeDB.put(3, film4);
 		hmFimeDB.add(film4);
-		
+
 		// 5. Film - Eine Leiche zum Dessert
 		Filme film5 = new Filme();
 		film5.setTitel("Eine Leiche zum Dessert");
@@ -103,9 +111,9 @@ public class FilmDatenBank {
 		film5.setLaenge(95);
 		film5.setJahr(1976);
 		film5.setGenre("Komödie");
-		//hmFimeDB.put(4, film5);
+		// hmFimeDB.put(4, film5);
 		hmFimeDB.add(film5);
-		
+
 		// 6. Film - Blues Brothers
 		Filme film6 = new Filme();
 		film6.setTitel("Blues Brothers");
@@ -117,7 +125,7 @@ public class FilmDatenBank {
 		film6.setLaenge(132);
 		film6.setJahr(1980);
 		film6.setGenre("Komödie");
-		//hmFimeDB.put(5, film6);
+		// hmFimeDB.put(5, film6);
 		hmFimeDB.add(film6);
 
 		// 7. Film - Captain America: The First Avenger
@@ -131,9 +139,9 @@ public class FilmDatenBank {
 		film7.setLaenge(124);
 		film7.setJahr(2011);
 		film7.setGenre("Action");
-		//hmFimeDB.put(6, film7);
+		// hmFimeDB.put(6, film7);
 		hmFimeDB.add(film7);
-		
+
 		// 8. Film - Knight and Day
 		Filme film8 = new Filme();
 		film8.setTitel("Knight and Day");
@@ -145,9 +153,9 @@ public class FilmDatenBank {
 		film8.setLaenge(109);
 		film8.setJahr(2010);
 		film8.setGenre("Komödie");
-		//hmFimeDB.put(7, film8);
+		// hmFimeDB.put(7, film8);
 		hmFimeDB.add(film8);
-		
+
 		// 9. Film - Chihiros Reise ins Zauberland
 		Filme film9 = new Filme();
 		film9.setTitel("Chihiros Reise ins Zauberland");
@@ -159,9 +167,9 @@ public class FilmDatenBank {
 		film9.setLaenge(125);
 		film9.setJahr(2001);
 		film9.setGenre("Animation");
-		//mFimeDB.put(8, film9);
+		// mFimeDB.put(8, film9);
 		hmFimeDB.add(film9);
-		
+
 		// 10. Film - Die Körperfresser kommen
 		Filme film10 = new Filme();
 		film10.setTitel("Die Körperfresser kommen");
@@ -173,7 +181,7 @@ public class FilmDatenBank {
 		film10.setLaenge(111);
 		film10.setJahr(1978);
 		film10.setGenre("Science-Fiction");
-		//hmFimeDB.put(9, film10);
+		// hmFimeDB.put(9, film10);
 		hmFimeDB.add(film10);
 
 	}

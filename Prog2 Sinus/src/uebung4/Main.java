@@ -30,14 +30,14 @@ public class Main extends Application {
 
 	@Override
 	public void start(Stage primaryStage) throws Exception {
-		//FilmDatenBank d = new FilmDatenBank();
+		// FilmDatenBank d = new FilmDatenBank();
 		Parent mainPane = FXMLLoader.load(getClass().getResource("/uebung4/moviebase2.fxml"));
 		primaryStage.setScene(new Scene(mainPane));
 		primaryStage.show();
+		primaryStage.setTitle("Filmdatenbank");
 		// FilmDatenBank d = new FilmDatenBank();
 		// d.addFilm(new Film());
-		
-		
+
 	}
 
 }

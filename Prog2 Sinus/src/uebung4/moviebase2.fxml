@@ -27,8 +27,8 @@
                      <children>
                         <TableView fx:id="tv_Movies" editable="true" prefHeight="555.0" prefWidth="1286.0">
                            <columns>
-                              <TableColumn fx:id="tc_Titel" prefWidth="172.0" text="Titel" />
-                              <TableColumn fx:id="tc_Original" prefWidth="167.99996948242188" text="Original" />
+                              <TableColumn fx:id="tc_Titel" prefWidth="172.0" text="DE Titel" />
+                              <TableColumn fx:id="tc_Original" prefWidth="167.99996948242188" text="US Titel" />
                               <TableColumn fx:id="tc_Haupt" prefWidth="203.0" text="Hauptdarsteller/in" />
                               <TableColumn fx:id="tc_Regie" prefWidth="156.0" text="Regie" />
                               <TableColumn fx:id="tc_Buch" prefWidth="175.0" text="Drehbuch" />
@@ -71,8 +71,8 @@
                               <Font size="14.0" />
                            </font></TextField>
                         <Label layoutX="875.0" layoutY="143.0" text="Regie" />
-                        <Label layoutX="1069.0" layoutY="194.0" text="Genre" />
-                        <ComboBox fx:id="cb_Genre" layoutX="1070.0" layoutY="211.0" prefHeight="27.0" prefWidth="179.0" />
+                        <Label layoutX="876.0" layoutY="252.0" text="Genre" />
+                        <ComboBox fx:id="cb_Genre" layoutX="877.0" layoutY="269.0" prefHeight="27.0" prefWidth="179.0" />
                         <TextField fx:id="tf_Laenge" layoutX="1070.0" layoutY="160.0">
                            <font>
                               <Font size="14.0" />
@@ -83,12 +83,12 @@
                               <Font size="14.0" />
                            </font></TextField>
                         <Label layoutX="875.0" layoutY="197.0" text="Drehbuch" />
-                        <Button fx:id="b_Delete" layoutX="876.0" layoutY="397.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="372.0" text="Löschen" textFill="RED">
+                        <Button fx:id="b_Delete" layoutX="876.0" layoutY="392.0" mnemonicParsing="false" onAction="#deleteEntry" prefHeight="51.0" prefWidth="372.0" text="Löschen" textFill="RED">
                            <font>
                               <Font name="System Bold Italic" size="18.0" />
                            </font>
                         </Button>
-                        <Button fx:id="b_insert" layoutX="875.0" layoutY="256.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="374.0" text="Einfügen">
+                        <Button fx:id="b_insert" layoutX="875.0" layoutY="329.0" mnemonicParsing="false" onAction="#clickAdd" prefHeight="45.0" prefWidth="374.0" text="Einfügen">
                            <font>
                               <Font size="18.0" />
                            </font>
@@ -104,6 +104,17 @@
                               <Font size="18.0" />
                            </font>
                         </Button>
+                        <TextField fx:id="tf_Musik" layoutX="1070.0" layoutY="223.0">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </TextField>
+                        <Label layoutX="1070.0" layoutY="206.0" text="Musik" />
+                        <Label fx:id="lNodeChanges" layoutX="954.0" layoutY="476.0" text="sefsefes" textFill="#38d327">
+                           <font>
+                              <Font name="System Bold Italic" size="18.0" />
+                           </font>
+                        </Label>
                      </children>
                   </AnchorPane>
             </content>
@@ -115,7 +126,7 @@
           <Menu mnemonicParsing="false" text="Datei">
             <items>
               <MenuItem mnemonicParsing="false" text="Speichern" />
-                  <MenuItem mnemonicParsing="false" text="Beenden" />
+                  <MenuItem mnemonicParsing="false" onAction="#beenden" text="Beenden" />
             </items>
           </Menu>
         </menus>
