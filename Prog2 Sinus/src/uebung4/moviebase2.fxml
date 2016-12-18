@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TableColumn?>
@@ -17,7 +16,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="610.0" prefWidth="1286.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uebung4.MovieController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="610.0" prefWidth="1286.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uebung4.MovieController">
    <children>
       <TabPane layoutX="3.0" layoutY="27.0" prefHeight="577.0" prefWidth="1286.0" tabClosingPolicy="UNAVAILABLE">
         <tabs>
@@ -46,6 +45,17 @@
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
+                        <ListView fx:id="lv_Movies" layoutX="14.0" layoutY="18.0" prefHeight="450.0" prefWidth="830.0" />
+                        <TextField fx:id="tf_Search1" layoutX="14.0" layoutY="478.0" prefHeight="41.0" prefWidth="318.0">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </TextField>
+                        <Button fx:id="b_Search1" layoutX="347.0" layoutY="478.0" mnemonicParsing="false" onAction="#searchMovieClick" onDragDetected="#searchMovieClick" prefHeight="42.0" prefWidth="88.0" text="Suchen">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Button>
                         <TextField fx:id="tf_Titel" layoutX="875.0" layoutY="48.0">
                            <font>
                               <Font size="14.0" />
@@ -71,8 +81,6 @@
                               <Font size="14.0" />
                            </font></TextField>
                         <Label layoutX="875.0" layoutY="143.0" text="Regie" />
-                        <Label layoutX="876.0" layoutY="252.0" text="Genre" />
-                        <ComboBox fx:id="cb_Genre" layoutX="877.0" layoutY="269.0" prefHeight="27.0" prefWidth="179.0" />
                         <TextField fx:id="tf_Laenge" layoutX="1070.0" layoutY="160.0">
                            <font>
                               <Font size="14.0" />
@@ -83,34 +91,25 @@
                               <Font size="14.0" />
                            </font></TextField>
                         <Label layoutX="875.0" layoutY="197.0" text="Drehbuch" />
-                        <Button fx:id="b_Delete" layoutX="876.0" layoutY="392.0" mnemonicParsing="false" onAction="#deleteEntry" prefHeight="51.0" prefWidth="372.0" text="Löschen" textFill="RED">
+                        <TextField fx:id="tf_Musik" layoutX="1070.0" layoutY="214.0">
                            <font>
-                              <Font name="System Bold Italic" size="18.0" />
+                              <Font size="14.0" />
                            </font>
-                        </Button>
+                        </TextField>
+                        <Label layoutX="1070.0" layoutY="197.0" text="Musik" />
+                        <Label layoutX="876.0" layoutY="252.0" text="Genre" />
+                        <ComboBox fx:id="cb_Genre" layoutX="877.0" layoutY="269.0" prefHeight="27.0" prefWidth="179.0" />
                         <Button fx:id="b_insert" layoutX="875.0" layoutY="329.0" mnemonicParsing="false" onAction="#clickAdd" prefHeight="45.0" prefWidth="374.0" text="Einfügen">
                            <font>
                               <Font size="18.0" />
                            </font>
                         </Button>
-                        <ListView fx:id="lv_Movies" layoutX="14.0" layoutY="18.0" prefHeight="450.0" prefWidth="830.0" />
-                        <TextField fx:id="tf_Search1" layoutX="14.0" layoutY="478.0" prefHeight="41.0" prefWidth="318.0">
+                        <Button fx:id="b_Delete" layoutX="876.0" layoutY="392.0" mnemonicParsing="false" onAction="#deleteEntry" prefHeight="51.0" prefWidth="372.0" text="Löschen" textFill="RED">
                            <font>
-                              <Font size="18.0" />
-                           </font>
-                        </TextField>
-                        <Button fx:id="b_Search1" layoutX="347.0" layoutY="478.0" mnemonicParsing="false" onAction="#searchMovieClick" onDragDetected="#searchMovieClick" prefHeight="42.0" prefWidth="88.0" text="Suchen">
-                           <font>
-                              <Font size="18.0" />
+                              <Font name="System Bold Italic" size="18.0" />
                            </font>
                         </Button>
-                        <TextField fx:id="tf_Musik" layoutX="1070.0" layoutY="223.0">
-                           <font>
-                              <Font size="14.0" />
-                           </font>
-                        </TextField>
-                        <Label layoutX="1070.0" layoutY="206.0" text="Musik" />
-                        <Label fx:id="lNodeChanges" layoutX="954.0" layoutY="476.0" text="sefsefes" textFill="#38d327">
+                        <Label fx:id="lNodeChanges" layoutX="954.0" layoutY="476.0" textFill="#38d327">
                            <font>
                               <Font name="System Bold Italic" size="18.0" />
                            </font>
