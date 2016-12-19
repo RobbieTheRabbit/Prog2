@@ -2,6 +2,7 @@ package uebung4;
 
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 
 /**
  * Controller class of the FXML File
@@ -19,8 +20,10 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableColumn.CellEditEvent;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.TextFieldTableCell;
 
 public class MovieController {
 
@@ -179,9 +182,12 @@ public class MovieController {
 	@FXML
 	private void initialize() {
 
+		tv_Movies.setEditable(true);
+
 		cb_Genre.getItems().addAll("Action", "Animation", "Komödie", "Drama", "Horror", "Fantasie", "Thriller",
 				"Comicverfilmung", "Romantik", "Science-Fiction");
 
+		// Content to fill elements
 		tc_Titel.setCellValueFactory(cellData -> cellData.getValue().getTitel());
 		tc_Regie.setCellValueFactory(cellData -> cellData.getValue().getRegie());
 		tc_Musik.setCellValueFactory(cellData -> cellData.getValue().getMusik());
@@ -192,8 +198,87 @@ public class MovieController {
 		tc_Buch.setCellValueFactory(cellData -> cellData.getValue().getBuch());
 		tc_Original.setCellValueFactory(cellData -> cellData.getValue().getUsTitel());
 
+		// Fill the TableView
 		tv_Movies.setItems(db.hmFimeDB);
+		// Fill the ListView
 		lv_Movies.setItems(db.hmFimeDB);
+
+		// Editable Titel
+		tc_Titel.setCellFactory(TextFieldTableCell.forTableColumn());
+		tc_Titel.setOnEditCommit(new EventHandler<CellEditEvent<Filme, String>>() {
+
+			@Override
+			public void handle(CellEditEvent<Filme, String> event) {
+				((Filme) event.getTableView().getItems().get(event.getTablePosition().getRow()))
+						.setTitel(event.getNewValue());
+			}
+		});
+
+		// Editable US Titel
+		tc_Original.setCellFactory(TextFieldTableCell.forTableColumn());
+		tc_Original.setOnEditCommit(new EventHandler<CellEditEvent<Filme, String>>() {
+
+			@Override
+			public void handle(CellEditEvent<Filme, String> event) {
+				((Filme) event.getTableView().getItems().get(event.getTablePosition().getRow()))
+						.setUsTitel(event.getNewValue());
+			}
+		});
+
+		// Editable Hauptdarsteller
+		tc_Haupt.setCellFactory(TextFieldTableCell.forTableColumn());
+		tc_Haupt.setOnEditCommit(new EventHandler<CellEditEvent<Filme, String>>() {
+
+			@Override
+			public void handle(CellEditEvent<Filme, String> event) {
+				((Filme) event.getTableView().getItems().get(event.getTablePosition().getRow()))
+						.setHaupt(event.getNewValue());
+			}
+		});
+
+		// Editable Regie
+				tc_Regie.setCellFactory(TextFieldTableCell.forTableColumn());
+				tc_Regie.setOnEditCommit(new EventHandler<CellEditEvent<Filme, String>>() {
+
+					@Override
+					public void handle(CellEditEvent<Filme, String> event) {
+						((Filme) event.getTableView().getItems().get(event.getTablePosition().getRow()))
+								.setRegie(event.getNewValue());
+					}
+				});
+				
+				// Editable Drehbuch
+				tc_Buch.setCellFactory(TextFieldTableCell.forTableColumn());
+				tc_Buch.setOnEditCommit(new EventHandler<CellEditEvent<Filme, String>>() {
+
+					@Override
+					public void handle(CellEditEvent<Filme, String> event) {
+						((Filme) event.getTableView().getItems().get(event.getTablePosition().getRow()))
+								.setBuch(event.getNewValue());
+					}
+				});
+				
+				// Editable Musik
+				tc_Musik.setCellFactory(TextFieldTableCell.forTableColumn());
+				tc_Musik.setOnEditCommit(new EventHandler<CellEditEvent<Filme, String>>() {
+
+					@Override
+					public void handle(CellEditEvent<Filme, String> event) {
+						((Filme) event.getTableView().getItems().get(event.getTablePosition().getRow()))
+								.setMusik(event.getNewValue());
+					}
+				});
+				
+//				// Editable Länge
+//				tc_Laenge.setCellValueFactory(TextFieldTableCell.forTableColumn());
+//				tc_Laenge.setOnEditCommit(new EventHandler<CellEditEvent<Filme, Integer>>() {
+//
+//					@Override
+//					public void handle(CellEditEvent<Filme, Integer> event) {
+//						((Filme) event.getTableView().getItems().get(event.getTablePosition().getRow()))
+//								.setLaenge(event.getNewValue());
+//					}
+//				});
 	}
 
 }
